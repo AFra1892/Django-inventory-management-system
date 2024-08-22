@@ -1,0 +1,17 @@
+{% extends "articles/base.html" %}
+
+{% block title %}Create Article{% endblock  %}
+
+{% block content %}
+    <h1>Create Article</h1>
+    {% if not submited %}
+    <form action="/articles/create" method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="enter your title" name="title">
+        <input placeholder="enter your content" name="content">
+        <input type="submit">
+    </form>
+    {% else %}
+        <p>Article Submitted</p>
+    {% endif %}
+{% endblock  %}
